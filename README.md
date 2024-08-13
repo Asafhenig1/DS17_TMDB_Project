@@ -36,4 +36,11 @@ create a more normalized-like data to improve boxplot virtualization
 6) BLOCK 6: Present new boxplot based on log files
 7) BLOCK 7: Finding outliers based on IQR
 8) BLOCK 8: Create an outliers table (feature	| outliers_cnt | distribution_changed | correlation_changed)
-9) BLOCK 9: 
+9) BLOCK 9: Filter features where only distribution changes but not correlation (disregard Target Feature - 'popularity')
+10) BLOCK 10: Remove outliers from two columns:   episode_run_time | num_production_companies
+11) BLOCK 11: Saved clean pickle file - # Save cleaned data 'df_clean.pkl'
+12) BLOCK 12: Missing Values Imputation - imputing 'origin_continent' with 'Other' category
+13) BLOCK 13: Missing Values Imputation - imputing 'episode_run_time' & 'num_production_companies' using MICE protocol
+14) BLOCK 14: Visualize Imputed Data
+15) BLO(CK 15: Write the tmdb_EDA_cleansed_file.pkl file based on the last status of 'df' dataframe
+
