@@ -1,0 +1,64 @@
+name: AsafH_pipeline_1
+
+on:
+  # Triggers the workflow on a push to the main branch
+  push:
+    branches:
+      - main
+  # Allows manual triggering from the GitHub Actions UI
+  workflow_dispatch:
+
+jobs:
+  # Job 1: The starting point of the pipeline
+  NoaTz_job_1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Message for Job 1
+        run: |
+          echo "==================================="
+          echo "Starting the pipeline with AsafH_job_1."
+          echo "==================================="
+      
+  # Job 2: Runs only after AsafH_job_1 succeeds
+  NoaTz_job_2:
+    runs-on: ubuntu-latest
+    needs: [AsafH_job_1]
+    steps:
+      - name: Print Message for Job 2
+        run: |
+          echo "==================================="
+          echo "Executing AsafH_job_2 after Job 1 completed."
+          echo "==================================="
+
+  # Job 3: Runs only after AsafH_job_2 succeeds
+  NoaTz_job_3:
+    runs-on: ubuntu-latest
+    needs: [AsafH_job_2]
+    steps:
+      - name: Print Message for Job 3
+        run: |
+          echo "==================================="
+          echo "Executing AsafH_job_3 after Job 2 completed."
+          echo "==================================="
+
+  # Job 4: Runs only after AsafH_job_3 succeeds
+  NoaTz_job_4:
+    runs-on: ubuntu-latest
+    needs: [AsafH_job_3]
+    steps:
+      - name: Print Message for Job 4
+        run: |
+          echo "==================================="
+          echo "Executing AsafH_job_4 after Job 3 completed."
+          echo "==================================="
+
+  # Job 5: The final job, runs only after AsafH_job_4 succeeds
+  NoaTz_job_5:
+    runs-on: ubuntu-latest
+    needs: [AsafH_job_4]
+    steps:
+      - name: Print Message for Job 5
+        run: |
+          echo "==================================="
+          echo "Pipeline complete! Finishing with AsafH_job_5."
+          echo "==================================="
